@@ -18,12 +18,24 @@ Hints:
 """
 
 import sys
+import re # using re module to remove punctuations
 
 def word_frequency(text):
     frequencies = {} # Dictionary to store word frequencies
 
-    # Your code here
+    text = text.lower() # converting to lowercase to ignore case
+    words = text.split() # splitting text into words
+
+    for word in words:
+        word = re.sub(r'[^\w]', '', word) # removing punctuation
+
+        if word in frequencies:
+            frequencies[word] += 1
+        else:
+            frequencies[word] = 1
     
+    frequencies = dict(sorted(frequencies.items()))
+
     return frequencies
 
 # Scaffold for opening a file and running word_frequency() on the contents
