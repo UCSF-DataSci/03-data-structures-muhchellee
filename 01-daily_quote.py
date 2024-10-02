@@ -16,14 +16,23 @@ from datetime import date
 
 
 quotes = [
-    # Create a list of quotes here
+    "Nothing is impossible in this world. - Himmel",
+    "Well done is better than well said. - Benjamin Franklin",
+    "Don't ruin a good day because of a bad yesterday. - Irene Bae",
+    "Be yourself; everyone else is already taken. - Oscar Wilde",
+    "All that we are is the result of what we have thought. - Buddha",
+    "The purpose of our lives is to be happy. - Dalai Lama",
+    "The lesson you need to learn right now can't be taught with words, only with action. - Levi Ackerman",
+    "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt"
 ]
 
 def get_quote_of_the_day(quotes):
     todays_quote = None
 
-    # Your code here
+    random.seed(date.today().toordinal())
     
+    todays_quote = random.choice(quotes)
+
     return todays_quote
 
 if __name__ == "__main__":
