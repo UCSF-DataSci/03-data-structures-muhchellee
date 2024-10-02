@@ -40,8 +40,22 @@ THOUSAND_DIGIT_NUMBER = """
 
 def find_greatest_product(number_string, adjacent_digits=13):
     max_product = 0
+    num_length = len(number_string)
     
-    # Your code here
+    # sliding window approach to check every set of digits
+    for i in range(num_length - adjacent_digits + 1): 
+        window_digits = number_string[i:i + adjacent_digits] # current window of adjacent digits
+
+        window_digits = [int(char) for char in window_digits] # converting char to int
+
+        # calculating product
+        product = 1
+        for digit in window_digits:
+            product *= digit      
+
+        # update max_product if current window of digits is greater
+        if product > max_product:
+            max_product = product  
 
     return max_product
 
